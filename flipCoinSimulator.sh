@@ -5,6 +5,8 @@ isTail=1
 head_count=0
 tail_count=0
 
+win_difference=0
+
 echo "Welcome to flip coin Program"
 
 Check_flip=$((RANDOM%2))
@@ -31,10 +33,20 @@ do
 	
 	if [ $head_count -eq 21 ]
 	then
-	     break
+	     while [ $win_difference -ne 2 ]
+		 do
+		    tail_count=$((tail_count+1))
+			win_difference=$((head_count-tail_count))
+		 done
+		 break
 	elif [ $tail_count -eq 21 ]
 	then
-	     break
+	     while [ $win_difference -ne 2 ]
+		 do
+		    head_count=$((head_count+1))
+			win_difference=$((tail_count-head_count))
+		 done
+		 break
 	fi
 	
 done
