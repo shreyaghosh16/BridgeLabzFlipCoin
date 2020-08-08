@@ -28,6 +28,15 @@ do
 	then
 	      tail_count=$((tail_count+1))
 	fi
+	
+	if [ $head_count -eq 21 ]
+	then
+	     break
+	elif [ $tail_count -eq 21 ]
+	then
+	     break
+	fi
+	
 done
 
 echo "Head occured $head_count times"
